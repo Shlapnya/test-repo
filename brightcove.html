@@ -16,24 +16,17 @@
         width="960" height="540">
   </video-js>
   <script src="https://players.brightcove.net/6255887672001/default_default/index.min.js"></script>
-  <script>
-    videojs.registerPlugin('annotoDev', function () {
-      var player = this;
-      var config = {
-        widgets: [
-          {
-            player: {
-              type: 'videojs',
-              element: player.el()
-            }
+  <script src="index.js"></script>
+  <script>videojs.getPlayer('player').annotoDev({
+    config: {
+      widgets : [
+        {
+          timeline: {
+            overlayVideo: true
           }
-        ],
-        demoMode: true
-      };
-
-      window.Annoto.boot(config);
-    });
-  </script>
-  <script>videojs.getPlayer('player').annotoDev();</script>
+        }
+      ]
+    }
+  });</script>
 </body>
 </html>
