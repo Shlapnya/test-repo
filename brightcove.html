@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Quick Start Plugin Dev</title>
+  <script src="https://app.annoto.net/annoto-bootstrap.js"></script>
+</head>
+
+<body>
+  <video-js id="player"
+        data-account="6255887672001"
+        data-player="default"
+        data-embed="default" controls=""
+        data-application-id=""
+        width="960" height="540">
+  </video-js>
+  <script src="https://players.brightcove.net/6255887672001/default_default/index.min.js"></script>
+  <script>
+    videojs.registerPlugin('annotoDev', function () {
+      var player = this;
+      var config = {
+        widgets: [
+          {
+            player: {
+              type: 'videojs',
+              element: player.el()
+            }
+          }
+        ],
+        demoMode: true
+      };
+
+      window.Annoto.boot(config);
+    });
+  </script>
+  <script>videojs.getPlayer('player').annotoDev();</script>
+</body>
+</html>

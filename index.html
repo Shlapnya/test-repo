@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://app.annoto.net/annoto-bootstrap.js"></script>
+    <script>
+        // Application configuration
+        var config = {
+
+            /* Below are the only Mandatory configuration options */
+            clientId: '', /* set to your client id after registration. */
+            widgets: [
+                {
+                    player: {
+                        type:    'youtube', /* type of the player */
+                        element: document.querySelector('#video-example') /* DOM element or id of the player */
+                    }
+                }
+            ],
+            demoMode: true, /* set to false when you have your clientId */
+
+        };
+
+        window.Annoto.boot(config);
+
+        let annotoAPI;
+        window.Annoto.on('ready', function (api) {
+            annotoAPI = api;
+            console.log(annotoAPI)
+        });
+    </script>
+</head>
+<body>
+<object data='https://www.youtube.com/embed/nfk6sCzRTbM?autoplay=1' id="video-example"
+        width='560px' height='315px'>
+</object>
+</body>
+</html>
